@@ -33,7 +33,9 @@ jobs:
           echo test, and deploy your project.
 
       - name: Test01
-        uses: ./tests/test01.sh
+        uses: ./
         with: 
             renat-base7-action: '' 
-
+        run: |
+            uname -a
+            whoai
