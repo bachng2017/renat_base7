@@ -8,8 +8,8 @@ RUN sed -i 's/\(override_install_langs.*\)/# \1/g' /etc/yum.conf
 # parameters
 ARG NTP_SERVER=10.128.3.103
 ARG RENAT_PASS=password!secret
-ARG HTTP_PROXY=http://10.128.3.103:4713
-ARG HTTPS_PROXY=http://10.128.3.103:4713
+# ARG HTTP_PROXY=http://10.128.3.103:4713
+# ARG HTTPS_PROXY=http://10.128.3.103:4713
 
 
 # setting environment
