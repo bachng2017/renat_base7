@@ -102,7 +102,8 @@ chmod 0775 /var/log/filebeat
 ### checkout RENAT and customize env
 RUN \
 echo "### checkout and customize renat..." && \
-chmod -R 0775 /home/robot && \
+mkdir $HOME/work
+chmod -R 0775 $HOME && \
 usermod -aG wheel robot
 
 # add USER robot
