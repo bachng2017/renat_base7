@@ -102,7 +102,7 @@ chmod 0775 /var/log/filebeat
 ### checkout RENAT and customize env
 RUN \
 echo "### checkout and customize renat..." && \
-mkdir $HOME/work
+mkdir $HOME/work && \
 chmod -R 0775 $HOME && \
 usermod -aG wheel robot
 

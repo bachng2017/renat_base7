@@ -32,7 +32,7 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - name: Use container
+      - name: Create a base container
         uses: ./
         with: 
             renat-base7-action: '' 
