@@ -103,13 +103,9 @@ chmod 0775 /var/log/filebeat
 RUN \
 echo "### checkout and customize renat..." && \
 chmod -R 0775 /home/robot && \
-mkdir /opt/renat && \
-chmod 0777 /opt/renat && \
 usermod -aG wheel robot
 
-# USER robot
-# WORKDIR /home/robot/work
-ADD --chown=robot:renat renat /home/robot/work/renat
+# add USER robot
 RUN \
 chown -R robot:renat /home/robot && \
 chmod -R 0775 /home/robot
