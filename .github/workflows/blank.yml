@@ -34,5 +34,3 @@ jobs:
 
       - name: Test01
         uses: ./
-        with: 
-            renat-base7-action: '' 
