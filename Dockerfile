@@ -59,7 +59,7 @@ RUN chmod 0440 /etc/sudoers.d/renat
 RUN sed -i 's/Defaults    secure_path/# &/' /etc/sudoers
 
 ### change skeleton setting
-ADD files/skel/ /etc/skel/
+ADD files/etc/skel/ /etc/skel/
 RUN \
 mkdir -p /etc/skel/work && \
 chmod 0775 /etc/skel/work && \
