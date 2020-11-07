@@ -34,3 +34,5 @@ jobs:
 
       - name: Test01
         uses: ./
+        with:
+            entrypoint: ./tests/test01/entrypoint.sh
