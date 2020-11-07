@@ -34,5 +34,6 @@ jobs:
 
       - name: Use container
         uses: ./
-        with: renat_base7_action
+        with: 
+            renat-base7-action
 
