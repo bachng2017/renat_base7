@@ -31,3 +31,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      - name: Use container
+        uses: ./
+        with: renat_base7_action
+
