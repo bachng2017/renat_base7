@@ -32,8 +32,8 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - name: Create a base container
-        uses: ./
+      - name: Test01
+        uses: ./tests/test01.sh
         with: 
             renat-base7-action: '' 
 
