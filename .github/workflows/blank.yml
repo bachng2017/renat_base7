@@ -32,3 +32,7 @@ jobs:
         uses: ./
         with:
             entrypoint: ./tests/test02/entrypoint.sh
+        script: |
+            ls -la
+            uname -a
+            printenv
