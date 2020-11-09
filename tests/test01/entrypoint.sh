@@ -1,10 +1,6 @@
 #!/bin/sh
 
-sudo -i -u robot
-whoami
-uname -a
-date
-date
-date
-date
-
+echo "------------------------------"
+echo "Test01"
+echo "This is a null test case"
+echo "------------------------------"
