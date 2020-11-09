@@ -4,6 +4,9 @@ echo "Test03"
 echo "A null project"
 echo "-------------"
 git clone https://github.com/bachng2017/RENAT.git renat
+pwd
+echo $WORKSPACE
+ls $WORKSPACE
 export RENAT_PATH renat
 $RENAT_PATH/tools/project.sh sample01
 cd sample01
