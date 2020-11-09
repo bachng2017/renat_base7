@@ -36,3 +36,8 @@ jobs:
         uses: ./
         with:
             entrypoint: ./tests/test01/entrypoint.sh
+
+      - name: Test02
+        uses: ./
+        with:
+            entrypoint: ./tests/test02/entrypoint.sh
