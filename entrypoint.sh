@@ -21,8 +21,12 @@ for item in $(find $TEST_FOLDER -depth  -type f -name $ENTRY_POINT); do
     pwd
     $item
     RETURN=$(expr $RETURN + $?)
+    echo "--------------------"
+    echo "ENTRY_POINT: exit code is $RETURN"
 done
-echo "exit code is $RETURN"
+
+echo "--------------------"
+echo "ENTRY_POINT: exit code is $RETURN"
 exit $RETURN
 
 
