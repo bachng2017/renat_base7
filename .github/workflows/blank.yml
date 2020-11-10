@@ -22,8 +22,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - name: Test
+        run: |
+            ls -la /tmp
+
       # Runs RENAT tests
-      - name: Run RENAT test 
+      - name: Run RENAT test
+        # use action.yml inside the root directory (local action)
         uses: ./
         with:
             entrypoint: ./entrypoint.sh
