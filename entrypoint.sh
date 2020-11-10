@@ -22,7 +22,7 @@ for item in $(find $TEST_FOLDER -depth  -type f -name $ENTRY_POINT); do
     $item
     RETURN=$(expr $RETURN + $?)
 done
-return $RETURN
+exit $RETURN
 
 
 
