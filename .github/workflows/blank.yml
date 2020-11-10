@@ -23,16 +23,8 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs RENAT tests
-      - name: Test01
+      - name: Run RENAT test 
         uses: ./
         with:
-            entrypoint: ./tests/test01/entrypoint.sh
+            entrypoint: ./entrypoint.sh
 
-      - name: Test02
-        uses: ./
-        with:
-            entrypoint: ./tests/test02/entrypoint.sh
-        script: |
-            ls -la
-            uname -a
-            printenv
