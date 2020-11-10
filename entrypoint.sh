@@ -10,6 +10,7 @@ TEST_FOLDER=$GITHUB_WORKSPACE/tests
 for item in $(ls -1 $TEST_FOLDER); do
     echo "run test $item"
     cd $item
+    pwd
     if [ -f ./entrypoint.sh ]; do
         ./entrypoint.sh
     fi
