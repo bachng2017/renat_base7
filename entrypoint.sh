@@ -13,13 +13,16 @@ export RENAT_PATH=$GITHUB_WORKSPACE/renat
 TEST_FOLDER=$GITHUB_WORKSPACE/tests 
 # entrypoint script. Default is entrypoint.sh
 ENTRY_POINT=entrypoint.sh
+RETURN=0
 for item in $(find $TEST_FOLDER -depth  -type f -name $ENTRY_POINT); do
     export CURRENT_DIR=$(dirname $item)
     echo "run test in $CURRENT_DIR"
     cd $CURRENT_DIR
     pwd
     $item
+    RETURN=$(expr $RETURN + $?)
 done
+return $RETURN
 
 
 
