@@ -32,8 +32,9 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v2
         with:
+            push: true
+            load: true
             tags: ghcr.io/bachng2017/renat_base7_action:${{ steps.prep.outputs.tag }}
-            cache_froms: ghcr.io/bachng2017/renat_base7_action:${{ steps.prep.outputs.tag }}
             build_args: BUILDKIT_INLINE_CACHE=1
             entrypoint: ./entrypoint.sh
 
