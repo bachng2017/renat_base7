@@ -37,7 +37,6 @@ jobs:
         with:
             # push: true
             load: true
-            tags: ghcr.io/bachng2017/renat_base7_action:${{ steps.prep.outputs.tag }}
-            build_args: BUILDKIT_INLINE_CACHE=1
-            entrypoint: ./entrypoint.sh
-
+            tags: bachng2017/renat_base7_action:latest
+            cache-from: type=registry,ref=bachng2017/renat_base7_action:latest
+            cache-to: type=inline
