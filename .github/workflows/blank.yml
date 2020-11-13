@@ -22,13 +22,17 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-
-      # Runs RENAT tests
-      - name: Run RENAT test
+      - name: Build and Push
+        uses: docker/build-push-action@v1
         env:
             DOCKER_BUILDKIT: 1
-        # use action.yml inside the root directory (local action)
-        uses: ./
         with:
+            username: ${{ github.actor }}
+            password: ${{ secrets.DOCKER_PASSWORD }}
+            repository: ghcr.io
+            repository: bachng2017/renat_base7_action
+            tags: latest
+            cache_froms: bachng2017/renat_base7_action:latest
+            build_args: BUILDKIT_INLINE_CACHE=1
             entrypoint: ./entrypoint.sh
 
