@@ -26,7 +26,7 @@ jobs:
       # Runs RENAT tests
       - name: Run RENAT test
         env:
-            DCOKET_BUILDKIT: 1
+            DOCKER_BUILDKIT: 1
         # use action.yml inside the root directory (local action)
         uses: ./
         with:
