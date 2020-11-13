@@ -28,7 +28,7 @@ jobs:
         name: Cache Docker layers
         uses: actions/cache@v2
         with:
-          path: /tmp/.buildx-cache
+          path: ./tmp/.buildx-cache
           key: ${{ runner.os }}-buildx-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-buildx-
@@ -48,5 +48,5 @@ jobs:
             tags: ghcr.io/bachng2017/renat_base7_action:latest
             # cache-from: type=registry,ref=bachng2017/renat_base7_action:latest
             # cache-to: type=inline
-            cache-from: type=local,src=/tmp/.buildx-cache
-            cache-to: type=local,dest=/tmp/.buildx-cache
+            cache-from: type=local,src=./tmp/.buildx-cache
+            cache-to: mode=max,type=local,dest=./tmp/.buildx-cache
