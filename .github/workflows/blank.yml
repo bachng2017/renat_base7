@@ -22,17 +22,19 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Build and Push
-        uses: docker/build-push-action@v1
-        env:
-            DOCKER_BUILDKIT: 1
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
         with:
-            username: ${{ github.actor }}
-            password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and Push
+        uses: docker/build-push-action@v2
+        with:
             registry: ghcr.io
-            repository: bachng2017/renat_base7_action
-            tags: latest
-            cache_froms: bachng2017/renat_base7_action:latest
+            tags: ghcr.io/bachng2017/renat_base7_action:${{ steps.prep.outputs.tag }}
+            cache_froms: ghcr.io/bachng2017/renat_base7_action:${{ steps.prep.outputs.tag }}
             build_args: BUILDKIT_INLINE_CACHE=1
             entrypoint: ./entrypoint.sh
 
