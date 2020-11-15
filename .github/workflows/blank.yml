@@ -48,7 +48,9 @@ jobs:
             tags: ghcr.io/bachng2017/renat_base7_action:latest
             cache-from: type=local,src=/tmp/.buildx-cache
             cache-to: mode=max,type=local,dest=/tmp/.buildx-cache
-            entrypoint: ./entrypoint.sh
+
+      - 
+        run: docker exec bachng2017/renat_base7_action:latest entrypoint.sh
 
       - name: Build and Push
         uses: docker/build-push-action@v2
