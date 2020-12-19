@@ -49,8 +49,8 @@ jobs:
             cache-from: type=local,src=/tmp/.buildx-cache
             cache-to: mode=max,type=local,dest=/tmp/.buildx-cache
 
-      - 
-        run: docker exec bachng2017/renat_base7_action:latest entrypoint.sh
+      - run: docker run bachng2017/renat_base7_action:latest 
+      - run: docker exec bachng2017/renat_base7_action:latest entrypoint.sh
 
       - name: Build and Push
         uses: docker/build-push-action@v2
