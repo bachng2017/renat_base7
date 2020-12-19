@@ -49,10 +49,12 @@ jobs:
             cache-from: type=local,src=/tmp/.buildx-cache
             cache-to: mode=max,type=local,dest=/tmp/.buildx-cache
 
-      - run: |
-            pwd
-            ls -a
-            whoami
+       - 
+        run: pwd
+    
+       - 
+        run: ls -a
+
        - 
         run: docker run -v $GITHUB_WORKSPACE:$GITHUB_WORKSPACE -w $GITHUB_WORKSPACE --entrypoint=entrypoint.sh ghcr.io/bachng2017/renat_base7_action:latest
 
