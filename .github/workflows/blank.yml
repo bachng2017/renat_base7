@@ -17,6 +17,9 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    env:
+        GITHUB_WORKSPACE: ${{ github.workspace }}
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -50,7 +53,7 @@ jobs:
             cache-to: mode=max,type=local,dest=/tmp/.buildx-cache
 
       - name: Run tests
-        run: docker run -e GITHUB_WORKSPACE -v ${{ github.workspace }}:/github/workspace -w "/github/workspace" --entrypoint="./entrypoint.sh" ghcr.io/bachng2017/renat_base7_action:latest
+        run: docker run -e GITHUB_WORKSPACE -v $GITHUB_WORKSPACE:/github/workspace -w "/github/workspace" --entrypoint="./entrypoint.sh" ghcr.io/bachng2017/renat_base7_action:latest
 
       - name: Build and Push
         uses: docker/build-push-action@v2
