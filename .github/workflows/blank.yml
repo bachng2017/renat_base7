@@ -55,7 +55,7 @@ jobs:
         run: ls -a
 
       - 
-        run: docker run -v $GITHUB_WORKSPACE:$GITHUB_WORKSPACE -w $GITHUB_WORKSPACE --entrypoint=entrypoint.sh ghcr.io/bachng2017/renat_base7_action:latest
+        run: docker run -v $GITHUB_WORKSPACE:/github/workspace -w "/github/workspace" --entrypoint=entrypoint.sh ghcr.io/bachng2017/renat_base7_action:latest
 
       - name: Build and Push
         uses: docker/build-push-action@v2
