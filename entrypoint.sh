@@ -3,8 +3,8 @@
 # By default, it will to run every a script call entrypoint.sh in very sub folder under
 # $$TEST_FOLDER
 
-echo "Clone RENAT source"
-git clone https://github.com/bachng2017/RENAT.git renat
+# echo "Clone RENAT source"
+# git clone https://github.com/bachng2017/RENAT.git renat
 
 echo "Create and run project"
 export RENAT_PATH=$GITHUB_WORKSPACE/renat
