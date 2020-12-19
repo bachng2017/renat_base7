@@ -53,6 +53,9 @@ jobs:
             cache-to: mode=max,type=local,dest=/tmp/.buildx-cache
 
       -
+        run: echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
+
+      -
         run: ls -a $GITHUB_WORKSPACE
 
       - name: Run tests
