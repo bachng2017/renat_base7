@@ -59,13 +59,7 @@ jobs:
             cache-from: type=local,src=/tmp/.buildx-cache
             cache-to: mode=max,type=local,dest=/tmp/.buildx-cache
 
-      -
-        run: echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
-
-      -
-        run: ls -a $GITHUB_WORKSPACE
-
-      - name: Run tests
+      - name: Run Tests
         run: docker run -e GITHUB_WORKSPACE=/github/workspace -v "$GITHUB_WORKSPACE:/github/workspace" -w "/github/workspace" --entrypoint="./entrypoint.sh" ghcr.io/bachng2017/renat_base7_action:latest
 
       - name: Build and Push
