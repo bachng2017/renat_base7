@@ -8,6 +8,9 @@ git clone https://github.com/bachng2017/RENAT.git renat
 
 echo "Create and run project"
 export RENAT_PATH=$GITHUB_WORKSPACE/renat
+echo "RENAT_PATH=$RENAT_PATH"
+
+ls -la $GITHUB_WORKSPACE
 
 # default test folder. Need to be an absolute path
 TEST_FOLDER=$GITHUB_WORKSPACE/tests 
