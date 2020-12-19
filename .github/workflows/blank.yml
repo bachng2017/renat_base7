@@ -50,9 +50,7 @@ jobs:
             cache-to: mode=max,type=local,dest=/tmp/.buildx-cache
 
       - 
-        uses: ghcr.io/bachng2017/renat_base7_action:latest
-        with:
-            args: ./entrypoint.sh 
+        run: docker -v "${{ github.workspace }}":"/github" -it --entrypoint=entrypoint.sh ghcr.io/bachng2017/renat_base7_action:latest
 
       - name: Build and Push
         uses: docker/build-push-action@v2
