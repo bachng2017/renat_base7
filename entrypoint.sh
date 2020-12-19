@@ -13,6 +13,10 @@ TEST_FOLDER=$GITHUB_WORKSPACE/tests
 ENTRY_POINT=entrypoint.sh
 RETURN=0
 for item in $(find $TEST_FOLDER -depth  -type f -name $ENTRY_POINT); do
+    echo
+    echo
+    echo 
+    echo 
     export CURRENT_DIR=$(dirname $item)
     echo "run test in $CURRENT_DIR"
     cd $CURRENT_DIR
