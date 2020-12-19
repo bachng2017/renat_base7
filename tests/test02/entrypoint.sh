@@ -1,8 +1,8 @@
 #!/bin/sh
 
 echo "------------------------------"
-echo "Test01"
-echo "This is a null RENAT test case"
+echo "Test02"
+echo "This is a simple RENAT test case"
 echo "------------------------------"
 
 echo "Create and run project"
