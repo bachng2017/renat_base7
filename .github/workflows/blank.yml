@@ -28,7 +28,7 @@ jobs:
       - name: Checkout RENAT
         uses: actions/checkout@v2
         with:
-            repository: https://github.com/bachng2017/RENAT.git
+            repository: bachng2017/RENAT.git
             path: renat
       -
         name: Set up Docker Buildx
