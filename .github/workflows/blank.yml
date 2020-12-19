@@ -50,11 +50,9 @@ jobs:
             cache-to: mode=max,type=local,dest=/tmp/.buildx-cache
 
       - 
-        run: docker images
+        run: docker run ghcr.io/bachng2017/renat_base7_action:latest
       - 
-        run: docker run bachng2017/renat_base7_action:latest 
-      - 
-        run: docker exec bachng2017/renat_base7_action:latest entrypoint.sh
+        run: docker exec ghcr.io/bachng2017/renat_base7_action:latest
 
       - name: Build and Push
         uses: docker/build-push-action@v2
