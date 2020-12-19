@@ -40,7 +40,7 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and Run
+      - name: Build and Load
         uses: docker/build-push-action@v2
         with:
             push: false
@@ -48,14 +48,9 @@ jobs:
             tags: ghcr.io/bachng2017/renat_base7_action:latest
             cache-from: type=local,src=/tmp/.buildx-cache
             cache-to: mode=max,type=local,dest=/tmp/.buildx-cache
-      - 
-        run: pwd
 
-      - 
-        run: ls -a
-
-      - 
-        run: docker run -v $GITHUB_WORKSPACE:/github/workspace -w "/github/workspace" --entrypoint="./entrypoint.sh" ghcr.io/bachng2017/renat_base7_action:latest
+      - name: Run tests
+        run: docker run -v /home/runner/work/renat_base7_action/renat_base7_action:/github/workspace -w "/github/workspace" --entrypoint="./entrypoint.sh" ghcr.io/bachng2017/renat_base7_action:latest
 
       - name: Build and Push
         uses: docker/build-push-action@v2
