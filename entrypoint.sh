@@ -18,17 +18,14 @@ for item in $(find $TEST_FOLDER -depth  -type f -name $ENTRY_POINT); do
     echo 
     echo 
     export CURRENT_DIR=$(dirname $item)
-    echo "run test in $CURRENT_DIR"
     cd $CURRENT_DIR
-    pwd
+    echo "Run test in $CURRENT_DIR"
     $item
     RETURN=$(expr $RETURN + $?)
-    echo "--------------------"
-    echo "ENTRY_POINT: exit code is $RETURN"
 done
 
 echo "--------------------"
-echo "ENTRY_POINT: exit code is $RETURN"
+echo "Exit code is $RETURN"
 exit $RETURN
 
 
