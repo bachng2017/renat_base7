@@ -18,7 +18,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     outputs:
-        files: ${{ steps.get_file.output.files }}
+        files: ${{ steps.get_file.outputs.files }}
 
     env:
         GITHUB_WORKSPACE: ${{ github.workspace }}
