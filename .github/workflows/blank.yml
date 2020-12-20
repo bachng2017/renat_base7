@@ -32,6 +32,7 @@ jobs:
       - name: Collect changed files
         id: change
         run: |
+            git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
             # echo "::set-output name=diff::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})"
             echo "::set-output name=diff::xxx"
 
