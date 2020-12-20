@@ -32,9 +32,7 @@ jobs:
       - name: Collect changed files
         id: change
         run: |
-            ls -la
-            /usr/bin/git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
-            echo "::set-output name=diff::$(/usr/bin/git diff-tree --no-commit-id --name-only -r ${{ github.sha }})"
+            echo "::set-output name=diff::$(/usr/bin/git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep Dockerfile)"
 
       - name: Checkout RENAT
         uses: actions/checkout@v2
