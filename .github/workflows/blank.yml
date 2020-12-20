@@ -18,7 +18,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     outputs:
-        files: ${{ steps.checkout.outputs.files }}
+        files: ${{ steps.change.outputs.files }}
 
     env:
         GITHUB_WORKSPACE: ${{ github.workspace }}
@@ -28,7 +28,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
         uses: actions/checkout@v2
-        id: checkout
+
+      - name: Collect changed files
+        id: change
         run: |
             files=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})
             echo ::set-output name=files::$files
