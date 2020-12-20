@@ -81,7 +81,7 @@ jobs:
   # only trigger this job when Docker file is changed
   publish:
     needs: [build-and-test]
-    if: ${{ needs.build-and-test.output == "Dockerfile" }}
+    if: ${{ needs.build-and-test.output == 'Dockerfile' }}
     runs-on: ubuntu-latest
     env:
         GITHUB_WORKSPACE: ${{ github.workspace }}
