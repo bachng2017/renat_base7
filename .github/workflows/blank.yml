@@ -18,7 +18,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     outputs:
-        files: ${{ steps.changes.files }}
+        files: ${{ steps.get_file.output.files }}
 
     env:
         GITHUB_WORKSPACE: ${{ github.workspace }}
@@ -75,7 +75,7 @@ jobs:
             cache-to: mode=max,type=local,dest=/tmp/.buildx-cache
 
       - name: Get changed files
-        id: changes
+        id: get_files
         run: |
             files=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})
             echo ::set-output name=files::$files
@@ -83,7 +83,7 @@ jobs:
   # only trigger this job when Docker file is changed
   publish:
     needs: [build-and-test]
-#    if: ${{ needs.build-and-test.output == 'Dockerfile' }}
+#    if: ${{ needs.build-and-test.outputs.files == 'Dockerfile' }}
     runs-on: ubuntu-latest
     env:
         GITHUB_WORKSPACE: ${{ github.workspace }}
