@@ -7,8 +7,6 @@ name: CI
 on:
   push:
     branches: [ master ]
-    paths:
-    - 'Dockerfile'
   pull_request:
     branches: [ master ]
   
@@ -74,6 +72,10 @@ jobs:
             cache-from: type=local,src=/tmp/.buildx-cache
             cache-to: mode=max,type=local,dest=/tmp/.buildx-cache
 
+      - name: Get changed files
+        run: echo '::set-output name=CHANGED_FILES::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})' 
+
+  # only trigger this job when Docker file is changed
   publish:
     needs: [build-and-test]
     runs-on: ubuntu-latest
