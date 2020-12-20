@@ -32,7 +32,7 @@ jobs:
       - name: Collect changed files
         id: change
         run: |
-            echo ::set-output name=diff::$(/usr/bin/git --name-only ${{ github.event.before }}..${{ github.event.after }})
+            echo ::set-output name=diff::$(/usr/bin/git diff --name-only ${{ github.event.before }}..${{ github.event.after }})
 
       - name: Checkout RENAT
         uses: actions/checkout@v2
