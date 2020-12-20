@@ -32,7 +32,7 @@ jobs:
       - name: Collect changed files
         id: change
         run: |
-            files=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})
+            set files=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})
             echo ::set-output name=files::$files
 
       - name: Checkout RENAT
