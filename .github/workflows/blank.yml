@@ -76,7 +76,9 @@ jobs:
 
       - name: Get changed files
         id: changes
-        run: echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})\n"
+        run: |
+        files=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})
+        echo ::set-output name=files::$files
 
   # only trigger this job when Docker file is changed
   publish:
