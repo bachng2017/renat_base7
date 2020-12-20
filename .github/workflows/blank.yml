@@ -32,7 +32,7 @@ jobs:
       - name: Collect changed files
         id: change
         run: |
-            echo ::set-output name=diff::$(whoami)
+            echo ::set-output name=diff::$(/usr/bin/git --version)
 
       - name: Checkout RENAT
         uses: actions/checkout@v2
