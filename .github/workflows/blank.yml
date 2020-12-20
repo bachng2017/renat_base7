@@ -90,14 +90,12 @@ jobs:
         GITHUB_WORKSPACE: ${{ github.workspace }}
     
     steps: 
-#       - name: Build and Push (Dockerhub repository)
-#         uses: docker/build-push-action@v2
-#         with:
-#             push: true
-#             load: false
-#             username: bachng
-#             password: ${{ secrets.DOCKER_PASSWORD }}
-#             tags: bachng/renat:latest
-
-        -
-          run: echo ${{ needs.build-and-test.outputs.files }}
+      - name: Build and Push (Dockerhub repository)
+        uses: docker/build-push-action@v2
+        with:
+            push: true
+            load: false
+            username: bachng
+            cache-from: type=local,src=/tmp/.buildx-cache
+            tags: bachng/renat:latest
+            password: ${{ secrets.DOCKER_PASSWORD }}
