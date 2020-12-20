@@ -83,19 +83,20 @@ jobs:
   # only trigger this job when Docker file is changed
   publish:
     needs: [build-and-test]
-    if: ${{ needs.build-and-test.output == 'Dockerfile' }}
+#    if: ${{ needs.build-and-test.output == 'Dockerfile' }}
     runs-on: ubuntu-latest
     env:
         GITHUB_WORKSPACE: ${{ github.workspace }}
     
     steps: 
-      - name: Build and Push (Dockerhub repository)
-        uses: docker/build-push-action@v2
-        with:
-            push: true
-            load: false
-            username: bachng
-            password: ${{ secrets.DOCKER_PASSWORD }}
-            tags: bachng/renat:latest
+#       - name: Build and Push (Dockerhub repository)
+#         uses: docker/build-push-action@v2
+#         with:
+#             push: true
+#             load: false
+#             username: bachng
+#             password: ${{ secrets.DOCKER_PASSWORD }}
+#             tags: bachng/renat:latest
 
-    
+        -
+          run: echo ${{ needs.build-and-test.output}}
