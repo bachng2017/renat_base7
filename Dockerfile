@@ -1,4 +1,5 @@
-# base information
+# base information 
+#
 FROM centos:7
 LABEL maintainer="bachng@gmail.com"
 
@@ -128,6 +129,5 @@ RUN \
 echo "### enviroment" && \
 /usr/bin/printenv && \
 ls -la $HOME/work
-
 
 
