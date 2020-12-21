@@ -71,7 +71,7 @@ jobs:
           username: bachng
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - 
+      - name: Check files 
         run: echo "Change was:  ${{ steps.change.outputs.files }}"
 
       - name: Build and Push (Dockerhub repository)
