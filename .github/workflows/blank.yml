@@ -90,12 +90,16 @@ jobs:
         GITHUB_WORKSPACE: ${{ github.workspace }}
     
     steps: 
+      - name: Login to Dockerhub
+        uses: docker/login-action@v1
+        with:
+          username: bachng
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
       - name: Build and Push (Dockerhub repository)
         uses: docker/build-push-action@v2
         with:
             push: true
             load: false
-            username: bachng
             cache-from: type=local,src=/tmp/.buildx-cache
             tags: bachng/renat:latest
-            password: ${{ secrets.DOCKER_PASSWORD }}
