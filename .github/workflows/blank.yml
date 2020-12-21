@@ -71,7 +71,10 @@ jobs:
           username: bachng
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and Push (Dockerhup repository)
+      - 
+        run: echo "Change was:  ${{ steps.change.outputs.files }}"
+
+      - name: Build and Push (Dockerhub repository)
         if: ${{ steps.change.outputs.files == 'Dockerfile' }}
         uses: docker/build-push-action@v2
         with:
