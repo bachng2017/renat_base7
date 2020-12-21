@@ -72,7 +72,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and Push (Dockerhup repository)
-        if: ${{ needs.build-and-test.outputs.files == 'Dockerfile' }}
+        if: ${{ steps.change.outputs.files == 'Dockerfile' }}
         uses: docker/build-push-action@v2
         with:
             push: true
