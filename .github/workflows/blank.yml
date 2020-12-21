@@ -72,7 +72,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Check files 
-        run: echo "Change was:  ${{ steps.change.outputs.files }}"
+        run:
+            echo "Change files: ${{ steps.change.outputs.files }}"
 
       - name: Build and Push (Dockerhub repository)
         if: ${{ steps.change.outputs.files == 'Dockerfile' }}
