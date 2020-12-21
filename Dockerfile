@@ -1,4 +1,5 @@
 # base information 
+# 
 FROM centos:7
 LABEL maintainer="bachng@gmail.com"
 
@@ -120,10 +121,10 @@ mkdir -p /opt/work/workspace && \
 chmod -R 0775 /opt/work && \
 chown -R jenkins:jenkins /opt/work 
 
-# cleanup
+### cleanup
 ENV http_proxy="" https_proxy=""
 
-# last check
+### last check
 RUN \ 
 echo "### enviroment" && \
 /usr/bin/printenv && \
