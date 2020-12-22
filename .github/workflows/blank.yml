@@ -70,12 +70,12 @@ jobs:
         with:
             push: false
             load: true
-            tags: ghcr.io/bachng2017/renat_base7_action:latest
+            tags: ghcr.io/bachng2017/renat_base7:latest
             cache-from: type=local,src=/tmp/.buildx-cache
             cache-to: mode=max,type=local,dest=/tmp/.buildx-cache
 
       - name: Run Tests
-        run: docker run -e GITHUB_WORKSPACE=/github/workspace -v "$GITHUB_WORKSPACE:/github/workspace" -w "/github/workspace" --entrypoint="./entrypoint.sh" ghcr.io/bachng2017/renat_base7_action:latest
+        run: docker run -e GITHUB_WORKSPACE=/github/workspace -v "$GITHUB_WORKSPACE:/github/workspace" -w "/github/workspace" --entrypoint="./entrypoint.sh" ghcr.io/bachng2017/renat_base7:latest
 
       - name: Build and Push 
         if: ${{ steps.change.outputs.diff == 'Dockerfile' }}
@@ -83,9 +83,9 @@ jobs:
         with:
             push: true
             load: false
-            context: .
             tags: |
-                ghcr.io/bachng2017/renat_base7_action:latest
-                bachng/renat_base7_action:latest
+                ghcr.io/bachng2017/renat_base7:latest
+                bachng/renat_base7:latest
             cache-from: type=local,src=/tmp/.buildx-cache
+            cache-to: mode=max,type=local,dest=/tmp/.buildx-cache
 
