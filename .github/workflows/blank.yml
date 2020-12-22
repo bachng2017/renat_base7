@@ -86,6 +86,6 @@ jobs:
             context: .
             tags: |
                 ghcr.io/bachng2017/renat_base7_action:latest
-                bachng2017/renat_base7_action:latest
+                bachng/renat_base7_action:latest
             cache-from: type=local,src=/tmp/.buildx-cache
 
