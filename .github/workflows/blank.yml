@@ -83,6 +83,7 @@ jobs:
         with:
             push: true
             load: false
+            context: .
             tags: |
                 ghcr.io/bachng2017/renat_base7_action:latest
                 bachng2017/renat_base7_action:latest
