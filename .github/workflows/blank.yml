@@ -34,7 +34,7 @@ jobs:
         run: |
             echo ::set-output name=diff::$(/usr/bin/git diff --name-only ${{ github.event.before }}..${{ github.event.after }} | grep renat/Dockerfile)
             echo ***
-            echo steps.change.outputs.diff
+            echo ${{ steps.change.outputs.diff }}
             echo ***
 
       - name: Checkout RENAT
