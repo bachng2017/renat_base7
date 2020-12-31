@@ -75,8 +75,7 @@ jobs:
             # cache-to: mode=max,type=local,dest=/tmp/.buildx-cache
 
       - name: Run Tests
-        # run: docker run -e GITHUB_WORKSPACE=/github/workspace -v "$GITHUB_WORKSPACE:/github/workspace" -w "/github/workspace" --entrypoint="./entrypoint.sh" ghcr.io/bachng2017/renat_base7:latest
-        run: docker-compose up -e GITHUB_WORKSPACE=/github/workspace -v "$GITHUB_WORKSPACE:/github/workspace" -w "/github/workspace" --exit-code-from test_renat
+        run: docker-compose up --exit-code-from test_renat
 
       - name: Build and Push 
         if: ${{ steps.change.outputs.diff == 'renat/Dockerfile' }}

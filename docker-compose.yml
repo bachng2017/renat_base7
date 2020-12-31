@@ -26,6 +26,8 @@ services:
             - 2625:2605
 
     test_renat:
+        environment: 
+            - GITHUB_WORKSPACE: /github/workspace
         container_name: renat_server
         depends_on:
             - "router1"
