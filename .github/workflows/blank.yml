@@ -29,10 +29,10 @@ jobs:
         with:
             fetch-depth: 0
 
-      - name: Collect changed files
+      - name: Check Dockerfile
         id: change
         run: |
-            echo ::set-output name=diff::$(/usr/bin/git diff --name-only ${{ github.event.before }}..${{ github.event.after }} | grep Dockerfile)
+            echo ::set-output name=diff::$(/usr/bin/git diff --name-only ${{ github.event.before }}..${{ github.event.after }} | grep renat/Dockerfile)
 
       - name: Checkout RENAT
         uses: actions/checkout@v2
@@ -70,10 +70,11 @@ jobs:
         with:
             push: false
             load: true
-            file: renat/Dockerfile
+            context: renat
+            file: Dockerfile
             tags: ghcr.io/bachng2017/renat_base7:latest
             cache-from: type=local,src=/tmp/.buildx-cache
-            # cache-to: mode=max,type=local,dest=/tmp/.buildx-cache
+            cache-to: mode=max,type=local,dest=/tmp/.buildx-cache
 
       - name: Run Tests
         run: docker-compose up --exit-code-from test_renat
