@@ -7,10 +7,10 @@ name: main CI flow
 on:
   push:
     branches: [ master ]
-    paths: renat/*
+    paths: renat/**
   pull_request:
     branches: [ master ]
-    paths: renat/*
+    paths: renat/**
   
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
