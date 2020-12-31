@@ -86,6 +86,8 @@ jobs:
         with:
             push: true
             load: false
+            context: renat
+            file: renat/Dockerfile
             tags: |
                 ghcr.io/bachng2017/renat_base7:latest
                 bachng/renat_base7:latest
