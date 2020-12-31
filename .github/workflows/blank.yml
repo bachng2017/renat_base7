@@ -71,7 +71,7 @@ jobs:
             push: false
             load: true
             context: renat
-            file: Dockerfile
+            file: renat/Dockerfile
             tags: ghcr.io/bachng2017/renat_base7:latest
             cache-from: type=local,src=/tmp/.buildx-cache
             cache-to: mode=max,type=local,dest=/tmp/.buildx-cache
