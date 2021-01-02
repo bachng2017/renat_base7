@@ -132,6 +132,6 @@ ls -la $HOME/work
 
 # startup cmds
 USER root
-COPY entry.sh /entry.sh
-ENTRYPOINT ["/entry.sh"]
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 
