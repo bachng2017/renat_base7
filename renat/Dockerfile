@@ -130,4 +130,8 @@ echo "### enviroment" && \
 /usr/bin/printenv && \
 ls -la $HOME/work
 
+# startup cmds
+USER root
+COPY entry.sh /entry.sh
+ENTRYPOINT ["/entry.sh"]
 
