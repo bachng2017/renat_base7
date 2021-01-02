@@ -40,7 +40,7 @@ services:
             - ./renat/config:/home/robot/work/renat/config
             - ./renat/test_renat:/home/robot/work/test_renat
             - ./renat/test_shell:/home/robot/work/test_shell
-            - ./entrypoint.sh:/entrypoint.sh
+            - ./renat/entrypoint.sh:/entrypoint.sh
         privileged: true
         command: /entrypoint.sh
 
