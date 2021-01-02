@@ -1,6 +1,0 @@
-# action.yml
-name: 'renat-base7-action'
-description: 'Image for RENAT container based on CentOS 7'
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
