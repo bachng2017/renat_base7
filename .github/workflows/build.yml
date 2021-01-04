@@ -58,4 +58,6 @@ jobs:
                 ghcr.io/bachng2017/renat_base7:latest
                 bachng/renat_base7:${{ steps.time_stamp.outputs.value }}
                 bachng/renat_base7:latest
+            cache-from: type=registry,ref=bachng/renat_base7:latest
+            cache-to: type=inline
 
