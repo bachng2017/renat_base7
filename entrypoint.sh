@@ -32,11 +32,11 @@ fi
 
 
 # prepare configuration file
-for item in $(ls -1 $RENAT_PATH/misc/config.sample); do 
-  if [ ! -f $RENAT_PATH/config/$item ]; then
-     cp $RENAT_PATH/misc/config.sample/$item $RENAT_PATH/config/$item
-  fi
-done
+# for item in $(ls -1 $RENAT_PATH/misc/config.sample); do 
+#  if [ ! -f $RENAT_PATH/config/$item ]; then
+#     cp $RENAT_PATH/misc/config.sample/$item $RENAT_PATH/config/$item
+#  fi
+# done
 
 
 # start services
